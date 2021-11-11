@@ -1,0 +1,87 @@
+CREATE TABLE sailors ( sid integer not null,
+sname varchar(32),
+rating integer,
+age real,
+CONSTRAINT PK_sailors 
+PRIMARY KEY (sid) );
+CREATE TABLE boat ( bid integer not null,
+bname varchar(32),
+color varchar(32),
+CONSTRAINT PK_boat PRIMARY KEY(bid) );
+CREATE TABLE reserves (sid integer not null,
+bid integer not null,
+day date not null,
+CONSTRAINT PK_reserves PRIMARY KEY(sid, bid, day), 
+FOREIGN KEY(sid) REFERENCES sailors(sid), 
+FOREIGN KEY(bid) REFERENCES boat(bid) );
+INSERT INTO sailors
+VALUES ( 1,'Shivam',9,20);
+INSERT INTO sailors
+VALUES (2,'Sumir',9,21);
+INSERT INTO sailors
+VALUES (3,'Chandan',7,19);
+INSERT INTO sailors
+VALUES (4,'Rayan',5,22);
+INSERT INTO sailors
+VALUES (5,'Anurag',6,20);
+INSERT INTO sailors
+VALUES (6,'Aman',6,19);
+INSERT INTO sailors
+VALUES (7,'Jai',8,20);
+INSERT INTO sailors
+VALUES (8,'Deepak',8,21);
+INSERT INTO sailors
+VALUES (9,'Gautam',4,20);
+INSERT INTO sailors
+VALUES (10,'Arun',9,22);
+INSERT INTO reserves
+VALUES (1,100,TO_DATE('2021-10-22','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (2,110,TO_DATE('2021-10-24','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (3,120,TO_DATE('2021-10-26','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (4,130,TO_DATE('2021-10-28','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (5,140,TO_DATE('2021-10-30','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (6,150,TO_DATE('2021-11-6','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (7,160,TO_DATE('2021-11-18','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (8,170,TO_DATE('2021-11-22','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (9,180,TO_DATE('2021-11-28','YYYY-MM-DD'));
+INSERT INTO reserves
+VALUES (10,190,TO_DATE('2021-11-29','YYYY-MM-DD'));
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 100, 'SS A', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 110, 'SS A', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 120, 'SS B', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 130, 'SS C', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 140, 'SS D', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 150, 'SS E', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 160, 'SS F', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 170, 'SS G', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 180, 'SS H', 'Blue' ); 
+INSERT INTO boat
+( bid, bname, color )
+VALUES ( 190, 'SS I', 'Blue' );
+
